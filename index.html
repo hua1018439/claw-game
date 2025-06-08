@@ -11,24 +11,19 @@
     />
   </head>
   <body>
-    <!-- 背景圖 -->
     <img src="picture/background.png" class="fullscreen-background" />
 
-    <!-- 響應式主容器 -->
     <div class="game-container">
-      <!-- 資訊面板 -->
       <div class="info-panel">
         <div class="coins" id="coinContainer"></div>
         <div class="score" id="scoreDisplay">score: 0</div>
         <div class="timer" id="timerDisplay">Time remaining: 10s</div>
       </div>
 
-      <!-- 娃娃機區塊 -->
       <div class="machine">
         <img id="claw" src="picture/claw.png" class="claw" />
         <img src="picture/front.png" class="front" />
 
-        <!-- 控制按鈕 -->
         <div class="controls">
           <img src="picture/left.png" onclick="moveLeft()" />
           <img src="picture/right.png" onclick="moveRight()" />
