@@ -1,4 +1,3 @@
-// 取得 DOM 元素
 const claw = document.getElementById("claw");
 const coinContainer = document.getElementById("coinContainer");
 const scoreDisplay = document.getElementById("scoreDisplay");
@@ -10,10 +9,9 @@ let score = 0;
 let timer = 10;
 let timerId = null;
 let isGrabbing = false;
-let clawXPercent = 24.5; // 用比例表示 (初始約對應 170px/693px)
-const clawStepPercent = 4.5; // 單次移動比例 (約 30px)
+let clawXPercent = 24.5;
+const clawStepPercent = 4.5;
 
-// ===== 更新畫面 =====
 function updateCoins() {
   coinContainer.innerHTML = "";
   for (let i = 0; i < 6; i++) {
@@ -38,7 +36,6 @@ function updateClawPosition() {
   claw.style.left = `${(clawXPercent / 100) * machineWidth}px`;
 }
 
-// ===== 移動爪子 =====
 function moveLeft() {
   if (coins === 0 || isGrabbing) return;
   clawXPercent = Math.max(clawXPercent - clawStepPercent, 0);
@@ -51,7 +48,6 @@ function moveRight() {
   updateClawPosition();
 }
 
-// ===== 倒數計時 =====
 function startTimer() {
   clearInterval(timerId);
   timer = 10;
@@ -70,7 +66,6 @@ function startTimer() {
   }, 1000);
 }
 
-// ===== 抓娃娃邏輯 =====
 function grab() {
   if (coins === 0 || isGrabbing) return;
   isGrabbing = true;
@@ -107,7 +102,6 @@ function grab() {
   }, 500);
 }
 
-// ===== 處理結果 =====
 function handleResult(isSuccess) {
   coins--;
   score += isSuccess ? 100 : -50;
@@ -132,7 +126,6 @@ function handleResult(isSuccess) {
   }, 400);
 }
 
-// ===== 初始化 =====
 updateCoins();
 updateScore();
 updateTimer();
